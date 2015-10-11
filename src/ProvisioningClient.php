@@ -57,7 +57,7 @@ class ProvisioningClient
             'userid' => $createUserCommand->getUserName(),
             'password' => $createUserCommand->getPassword()
         ];
-        $apiResponse = $this->apiConnection->sendRequest("POST", "/users", http_build_query($body));
+        $apiResponse = $this->apiConnection->sendRequest("POST", "/users", $this->buildFormParams($body));
 
         return $this->responseParser->parseResponse($apiResponse);
     }
@@ -82,7 +82,7 @@ class ProvisioningClient
             throw new NothingToModifyException('Nothing is specified to be modified');
         }
 
-        $apiResponse = $this->apiConnection->sendRequest("PUT", "/users/" . $editUserCommand->getUserName(), http_build_query($body));
+        $apiResponse = $this->apiConnection->sendRequest("PUT", "/users/" . $editUserCommand->getUserName(), $this->buildFormParams($body));
 
         return $this->responseParser->parseResponse($apiResponse);
     }
@@ -130,7 +130,7 @@ class ProvisioningClient
             'groupid' => $addUserToGroup->getGroupId()
         ];
 
-        $apiResponse = $this->apiConnection->sendRequest("POST", "/users/" . $addUserToGroup->getUserName() . '/groups', http_build_query($body));
+        $apiResponse = $this->apiConnection->sendRequest("POST", "/users/" . $addUserToGroup->getUserName() . '/groups', $this->buildFormParams($body));
 
         return $this->responseParser->parseResponse($apiResponse);
     }
@@ -156,7 +156,7 @@ class ProvisioningClient
             'groupid' => $addGroupCommand->getGroupId()
         ];
 
-        $apiResponse = $this->apiConnection->sendRequest("POST", "/groups", http_build_query($body));
+        $apiResponse = $this->apiConnection->sendRequest("POST", "/groups", $this->buildFormParams($body));
 
         return $this->responseParser->parseResponse($apiResponse);
     }
@@ -181,7 +181,7 @@ class ProvisioningClient
         $body = [
             'groupid' => $deleteUserFromGroup->getGroupId()
         ];
-        $apiResponse = $this->apiConnection->sendRequest("DELETE", "/users/" . $deleteUserFromGroup->getUserName() . "/groups", http_build_query($body));
+        $apiResponse = $this->apiConnection->sendRequest("DELETE", "/users/" . $deleteUserFromGroup->getUserName() . "/groups", $this->buildFormParams($body));
         return $this->responseParser->parseResponse($apiResponse);
     }
 
@@ -195,7 +195,7 @@ class ProvisioningClient
         $body = [
             'groupid' => $makeUserSubAdminOfGroup->getGroupId()
         ];
-        $apiResponse = $this->apiConnection->sendRequest("POST", "/users/" . $makeUserSubAdminOfGroup->getUserName() . "/subadmins", http_build_query($body));
+        $apiResponse = $this->apiConnection->sendRequest("POST", "/users/" . $makeUserSubAdminOfGroup->getUserName() . "/subadmins", $this->buildFormParams($body));
         return $this->responseParser->parseResponse($apiResponse);
     }
 
@@ -208,7 +208,7 @@ class ProvisioningClient
         $body = [
             'groupid' => $removeUsersSubAdminRightsFromGroup->getGroupId()
         ];
-        $apiResponse = $this->apiConnection->sendRequest("DELETE", "/users/" . $removeUsersSubAdminRightsFromGroup->getUserName() . "/subadmins", http_build_query($body));
+        $apiResponse = $this->apiConnection->sendRequest("DELETE", "/users/" . $removeUsersSubAdminRightsFromGroup->getUserName() . "/subadmins", $this->buildFormParams($body));
         return $this->responseParser->parseResponse($apiResponse);
     }
 
@@ -218,7 +218,7 @@ class ProvisioningClient
      */
     public function findSubAdminGroupsOfUser(FindSubAdminGroupsOfUser $findSubAdminGroupsOfUser)
     {
-        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findSubAdminGroupsOfUser->getUserName() . "/subadmins", http_build_query($body));
+        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findSubAdminGroupsOfUser->getUserName() . "/subadmins", '');
         return $this->responseParser->parseFindGroup($apiResponse);
     }
 
@@ -240,5 +240,14 @@ class ProvisioningClient
     {
         $apiResponse = $this->apiConnection->sendRequest("GET", "/groups/" . $findUsersOfGroup->getGroupId(), "");
         return $this->responseParser->parseFindUsers($apiResponse);
+    }
+
+    /**
+     * @param array $body
+     * @return array
+     */
+    private function buildFormParams(array $body)
+    {
+        return ['form_params' => $body];
     }
 }
