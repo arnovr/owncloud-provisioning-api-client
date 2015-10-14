@@ -16,6 +16,9 @@ $provisioningClient = new ProvisioningClient(
     new ApiConnection(
         new Client(),
         'http://www.your-owncloud-instance.com/ocs/v1.php/cloud'
+        'username',
+        'password'
+        5 //timeout is optional
     ),
     new XMLResponseParser()
 );

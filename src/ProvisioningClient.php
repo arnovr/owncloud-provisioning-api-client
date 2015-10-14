@@ -93,7 +93,7 @@ class ProvisioningClient
      */
     public function deleteUser(DeleteUser $deleteUserCommand)
     {
-        $apiResponse = $this->apiConnection->sendRequest("DELETE", "/users/" . $deleteUserCommand->getUserName(), '');
+        $apiResponse = $this->apiConnection->sendRequest("DELETE", "/users/" . $deleteUserCommand->getUserName());
 
         return $this->responseParser->parseResponse($apiResponse);
     }
@@ -104,7 +104,7 @@ class ProvisioningClient
      */
     public function findUsers(FindUsers $findUsersCommand)
     {
-        $apiResponse = $this->apiConnection->sendRequest("GET", "/users?search=" . $findUsersCommand->getUserName(), '');
+        $apiResponse = $this->apiConnection->sendRequest("GET", "/users?search=" . $findUsersCommand->getUserName());
 
         return $this->responseParser->parseFindUsers($apiResponse);
     }
@@ -115,7 +115,7 @@ class ProvisioningClient
      */
     public function findUser(FindUser $findUserCommand)
     {
-        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findUserCommand->getUserName(), '');
+        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findUserCommand->getUserName());
 
         return $this->responseParser->parseFindUser($apiResponse);
     }
@@ -141,19 +141,19 @@ class ProvisioningClient
      */
     public function findGroupOfUsers(FindGroupsOfUser $findGroupsOfUser)
     {
-        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findGroupsOfUser->getUserName() . '/groups', '');
+        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findGroupsOfUser->getUserName() . '/groups');
 
         return $this->responseParser->parseFindGroup($apiResponse);
     }
 
     /**
-     * @param CreateGroup $addGroupCommand
+     * @param CreateGroup $createGroup
      * @return StatusResult
      */
-    public function createGroup(CreateGroup $addGroupCommand)
+    public function createGroup(CreateGroup $createGroup)
     {
         $body = [
-            'groupid' => $addGroupCommand->getGroupId()
+            'groupid' => $createGroup->getGroupId()
         ];
 
         $apiResponse = $this->apiConnection->sendRequest("POST", "/groups", $this->buildFormParams($body));
@@ -167,7 +167,7 @@ class ProvisioningClient
      */
     public function deleteGroup(DeleteGroup $deleteGroupCommand)
     {
-        $apiResponse = $this->apiConnection->sendRequest("DELETE", "/groups/" . $deleteGroupCommand->getGroupId(), '');
+        $apiResponse = $this->apiConnection->sendRequest("DELETE", "/groups/" . $deleteGroupCommand->getGroupId());
 
         return $this->responseParser->parseResponse($apiResponse);
     }
@@ -218,7 +218,7 @@ class ProvisioningClient
      */
     public function findSubAdminGroupsOfUser(FindSubAdminGroupsOfUser $findSubAdminGroupsOfUser)
     {
-        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findSubAdminGroupsOfUser->getUserName() . "/subadmins", '');
+        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findSubAdminGroupsOfUser->getUserName() . "/subadmins");
         return $this->responseParser->parseFindGroup($apiResponse);
     }
 
@@ -228,7 +228,7 @@ class ProvisioningClient
      */
     public function findGroups(FindGroups $findGroups)
     {
-        $apiResponse = $this->apiConnection->sendRequest("GET", "/groups?search=" . $findGroups->getSearchGroup(), "");
+        $apiResponse = $this->apiConnection->sendRequest("GET", "/groups?search=" . $findGroups->getSearchGroup());
         return $this->responseParser->parseFindGroup($apiResponse);
     }
 
@@ -238,7 +238,7 @@ class ProvisioningClient
      */
     public function findUsersOfGroup(FindUsersOfGroup $findUsersOfGroup)
     {
-        $apiResponse = $this->apiConnection->sendRequest("GET", "/groups/" . $findUsersOfGroup->getGroupId(), "");
+        $apiResponse = $this->apiConnection->sendRequest("GET", "/groups/" . $findUsersOfGroup->getGroupId());
         return $this->responseParser->parseFindUsers($apiResponse);
     }
 

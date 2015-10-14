@@ -2,10 +2,12 @@
 
 namespace Arnovr\OwncloudProvisioning;
 
-
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
 
+/**
+ * Class ApiConnection
+ * @package Arnovr\OwncloudProvisioning
+ */
 class ApiConnection
 {
     /**
@@ -24,27 +26,45 @@ class ApiConnection
     private $apiClient;
 
     /**
+     * @var string
+     */
+    private $userName;
+
+    /**
+     * @var string
+     */
+    private $password;
+
+    /**
      * ApiConnection constructor.
      * @param Client $apiClient
      * @param string $owncloudUrl
-     * @param int $timeout
+     * @param string $userName
+     * @param string $password
+     * @param integer $timeout
      */
-    public function __construct(Client $apiClient, $owncloudUrl, $timeout = 5)
+    public function __construct(Client $apiClient, $owncloudUrl, $userName, $password, $timeout = 5)
     {
         $this->owncloudUrl = $owncloudUrl;
         $this->apiClient = $apiClient;
         $this->timeout = $timeout;
+        $this->userName = $userName;
+        $this->password = $password;
     }
 
     /**
      * @param string $method
      * @param string $url
-     * @param $body
+     * @param array $body
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function sendRequest($method, $url, $body)
+    public function sendRequest($method, $url, array $body = [])
     {
-        $request = new Request($method, $this->owncloudUrl . $url, [], $body);
-        return $this->apiClient->send($request, ['timeout' => $this->timeout]);
+        $auth = ['auth' => [$this->userName, $this->password]];
+        $body = array_merge($auth, $body);
+
+        return $this->apiClient->request($method, $this->owncloudUrl . $url,
+            $body
+        );
     }
 }
