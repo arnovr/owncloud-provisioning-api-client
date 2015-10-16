@@ -64,27 +64,34 @@ class ProvisioningClient
 
     /**
      * @param EditUser $editUserCommand
-     * @return StatusResult
+     * @return StatusResult[]
      *
      * @throws NothingToModifyException
      */
     public function editUser(EditUser $editUserCommand)
     {
         $body = get_object_vars($editUserCommand);
+        $putList = array();
+        $index = 0;
         foreach($body as $key => $value)
         {
-            if (empty($value)) {
-                unset($body[$key]);
+            if (!empty($value)) {
+                $putList[$index]['key'] = $key;
+                $putList[$index]['value'] = $value;
+                $index++;
             }
         }
 
         if (count($body) === 0) {
             throw new NothingToModifyException('Nothing is specified to be modified');
         }
-
-        $apiResponse = $this->apiConnection->sendRequest("PUT", "/users/" . $editUserCommand->getUserName(), $this->buildFormParams($body));
-
-        return $this->responseParser->parseResponse($apiResponse);
+        $responseCollection = array();
+        foreach($putList as $put)
+        {
+            $apiResponse = $this->apiConnection->sendRequest("PUT", "/users/" . $editUserCommand->getUserName(), $this->buildFormParams($put));
+            $responseCollection[$put['key']] = $this->responseParser->parseResponse($apiResponse);
+        }
+        return $responseCollection;
     }
 
     /**

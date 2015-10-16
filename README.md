@@ -32,7 +32,7 @@ $provisioningClient->createUser($user);
 
 ## Change Email address of a user
 ````
-$user = new EditUser('username');
+$user = new EditUser('usertochange@email.com');
 $user->email = 'email@email.com';
 
 $provisioningClient->editUser($user);
