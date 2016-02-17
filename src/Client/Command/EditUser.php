@@ -2,8 +2,6 @@
 
 namespace Arnovr\OwncloudProvisioning\Client\Command;
 
-use Assert\Assertion;
-
 class EditUser
 {
     /**
@@ -29,25 +27,5 @@ class EditUser
     /**
      * @var string
      */
-    private $userName;
-
-    /**
-     * EditUser constructor.
-     *
-     * @param string $userName
-     */
-    public function __construct($userName = '')
-    {
-        Assertion::notEmpty($userName, 'Username is a required field to edit a user');
-
-        $this->userName = $userName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserName()
-    {
-        return $this->userName;
-    }
+    public $userName;
 }

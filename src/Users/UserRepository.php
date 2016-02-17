@@ -2,6 +2,7 @@
 
 namespace Arnovr\OwncloudProvisioning\Users;
 
+use Arnovr\OwncloudProvisioning\Client\Command\EditUser;
 use Arnovr\OwncloudProvisioning\Client\Command\FindUser;
 use Arnovr\OwncloudProvisioning\Client\OwncloudClient;
 use Assert\Assertion;
@@ -36,10 +37,22 @@ class UserRepository
         $userResult = $this->owncloudClient->findUser(
             $findUserCommand
         );
+
         return User::from(
             $userResult['email'],
             (integer) $userResult['quota'],
             (bool) $userResult['enabled']
         );
+    }
+
+    /**
+     * @param User $user
+     * @return void
+     */
+    public function persist(User $user)
+    {
+        $editUser = new EditUser($user->userName());
+        // TODO fill in editusercommand
+        $this->owncloudClient->editUser($editUser);
     }
 }

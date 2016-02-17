@@ -9,7 +9,7 @@ class User
     /**
      * @var string
      */
-    private $email;
+    private $userName;
 
     /**
      * @var string
@@ -22,31 +22,37 @@ class User
     private $enabled = false;
 
     /**
-     * @param string  $email
+     * @param string  $userName
      * @param integer $quota
      * @param boolean $enabled
      */
-    private function __construct($statusCode, $email, $quota, $enabled) {
+    private function __construct($userName, $quota, $enabled) {
 
-        Assertion::integer($statusCode);
-        Assertion::email($email);
+        Assertion::email($userName);
         Assertion::integer($quota);
         Assertion::boolean($enabled);
 
-        $this->statusCode = $statusCode;
-        $this->email = $email;
+        $this->userName = $userName;
         $this->quota = $quota;
         $this->enabled = $enabled;
     }
 
     /**
-     * @param string $email
+     * @param string  $userName
      * @param integer $quota
      * @param boolean $enabled
      * @return User
      */
-    public static function from($email, $quota, $enabled)
+    public static function from($userName, $quota, $enabled)
     {
-        return new self($email, $quota, $enabled);
+        return new self($userName, $quota, $enabled);
+    }
+
+    /**
+     * @return string
+     */
+    public function userName()
+    {
+        return $this->userName;
     }
 }

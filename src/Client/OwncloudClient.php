@@ -89,7 +89,7 @@ class OwncloudClient
         $responseCollection = array();
         foreach($putList as $put)
         {
-            $apiResponse = $this->apiConnection->sendRequest("PUT", "/users/" . $editUserCommand->getUserName(), $this->buildFormParams($put));
+            $apiResponse = $this->apiConnection->sendRequest("PUT", "/users/" . $editUserCommand->userName, $this->buildFormParams($put));
             $responseCollection[$put['key']] = $this->responseParser->parseResponse($apiResponse);
         }
         return $responseCollection;
