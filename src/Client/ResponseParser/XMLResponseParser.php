@@ -37,12 +37,12 @@ class XMLResponseParser implements ResponseParser
         $domDocument = $this->createDomDocument($response->getBody()->getContents());
         $xpath = new DOMXpath($domDocument);
 
-        $getUserResult = new User();
-        $getUserResult->email = $this->getXPathNodeValue($xpath, '/ocs/data/email');
-        $getUserResult->quota = $this->getXPathNodeValue($xpath, '/ocs/data/quota');
-        $getUserResult->enabled = $this->getXPathNodeValue($xpath, '/ocs/data/enabled');
+        $getUserResult = [];
+        $getUserResult['email'] = $this->getXPathNodeValue($xpath, '/ocs/data/email');
+        $getUserResult['quota'] = $this->getXPathNodeValue($xpath, '/ocs/data/quota');
+        $getUserResult['enabled'] = $this->getXPathNodeValue($xpath, '/ocs/data/enabled');
+        $getUserResult['statusCode'] = $this->getXPathNodeValue($xpath, '/ocs/meta/statuscode');
 
-        $getUserResult = $this->parseStatusCodeResult($domDocument, $getUserResult);
         return $getUserResult;
     }
 

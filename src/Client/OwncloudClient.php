@@ -24,7 +24,7 @@ use Arnovr\OwncloudProvisioning\Client\Result\User;
 use Arnovr\OwncloudProvisioning\Client\Result\UserList;
 use Arnovr\OwncloudProvisioning\Client\Result\StatusResult;
 
-class ProvisioningClient
+class OwncloudClient
 {
     /**
      * @var ApiConnection
@@ -37,7 +37,7 @@ class ProvisioningClient
     private $responseParser;
 
     /**
-     * ProvisioningClient constructor.
+     * OwncloudClient constructor.
      * @param ApiConnection $apiConnection
      * @param ResponseParser $responseParser
      */
@@ -122,7 +122,7 @@ class ProvisioningClient
      */
     public function findUser(FindUser $findUserCommand)
     {
-        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findUserCommand->getUserName());
+        $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findUserCommand->userName);
 
         return $this->responseParser->parseFindUser($apiResponse);
     }
