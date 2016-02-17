@@ -1,10 +1,9 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning\Command;
+namespace Arnovr\OwncloudProvisioning\Client\Command;
 
-use Assert\Assertion;
 
-class AddUserToGroup
+class MakeUserSubAdminOfGroup
 {
     /**
      * @var string
@@ -17,7 +16,7 @@ class AddUserToGroup
     private $groupId;
 
     /**
-     * AddUserToGroup constructor.
+     * MakeUserSubAdminOfGroup constructor.
      *
      * @param string $userName
      * @param string $groupId

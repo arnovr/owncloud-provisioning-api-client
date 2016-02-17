@@ -1,10 +1,10 @@
 <?php
 
-use Arnovr\OwncloudProvisioning\Command\EditUser;
+use Arnovr\OwncloudProvisioning\Client\Command\EditUser;
 use Arnovr\OwncloudProvisioning\ProvisioningClient;
-use Arnovr\OwncloudProvisioning\Result\EditUserResult;
-use Arnovr\OwncloudProvisioning\Result\Exception\NothingToModifyException;
-use Arnovr\OwncloudProvisioning\Result\StatusResult;
+use Arnovr\OwncloudProvisioning\Client\Result\EditUserResult;
+use Arnovr\OwncloudProvisioning\Client\Result\Exception\NothingToModifyException;
+use Arnovr\OwncloudProvisioning\Client\Result\StatusResult;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;

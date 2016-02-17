@@ -1,9 +1,9 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning\Command;
+namespace Arnovr\OwncloudProvisioning\Client\Command;
 
 
-class MakeUserSubAdminOfGroup
+class RemoveUsersSubAdminRightsFromGroup
 {
     /**
      * @var string

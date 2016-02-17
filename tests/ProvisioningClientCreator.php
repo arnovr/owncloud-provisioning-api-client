@@ -2,7 +2,7 @@
 
 use Arnovr\OwncloudProvisioning\ApiConnection;
 use Arnovr\OwncloudProvisioning\ProvisioningClient;
-use Arnovr\OwncloudProvisioning\ResponseParser\XMLResponseParser;
+use Arnovr\OwncloudProvisioning\Client\ResponseParser\XMLResponseParser;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 

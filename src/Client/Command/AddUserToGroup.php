@@ -1,9 +1,10 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning\Command;
+namespace Arnovr\OwncloudProvisioning\Client\Command;
 
+use Assert\Assertion;
 
-class RemoveUsersSubAdminRightsFromGroup
+class AddUserToGroup
 {
     /**
      * @var string
@@ -16,7 +17,7 @@ class RemoveUsersSubAdminRightsFromGroup
     private $groupId;
 
     /**
-     * MakeUserSubAdminOfGroup constructor.
+     * AddUserToGroup constructor.
      *
      * @param string $userName
      * @param string $groupId

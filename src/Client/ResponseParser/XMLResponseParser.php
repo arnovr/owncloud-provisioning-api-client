@@ -1,12 +1,12 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning\ResponseParser;
+namespace Arnovr\OwncloudProvisioning\Client\ResponseParser;
 
-use Arnovr\OwncloudProvisioning\Result\GroupsList;
-use Arnovr\OwncloudProvisioning\Result\User;
-use Arnovr\OwncloudProvisioning\Result\UserList;
-use Arnovr\OwncloudProvisioning\Result\StatusResult;
-use Arnovr\OwncloudProvisioning\ResponseParser\Exception\ParseException;
+use Arnovr\OwncloudProvisioning\Client\Result\GroupsList;
+use Arnovr\OwncloudProvisioning\Client\Result\User;
+use Arnovr\OwncloudProvisioning\Client\Result\UserList;
+use Arnovr\OwncloudProvisioning\Client\Result\StatusResult;
+use Arnovr\OwncloudProvisioning\Client\ResponseParser\Exception\ParseException;
 use DOMDocument;
 use DOMXPath;
 use Psr\Http\Message\ResponseInterface;

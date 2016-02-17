@@ -1,9 +1,9 @@
 <?php
 
 
-use Arnovr\OwncloudProvisioning\Command\FindGroupsOfUser;
+use Arnovr\OwncloudProvisioning\Client\Command\FindGroupsOfUser;
 use Arnovr\OwncloudProvisioning\ProvisioningClient;
-use Arnovr\OwncloudProvisioning\Result\GroupsList;
+use Arnovr\OwncloudProvisioning\Client\Result\GroupsList;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;

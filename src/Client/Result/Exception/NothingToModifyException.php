@@ -1,6 +1,6 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning\Result\Exception;
+namespace Arnovr\OwncloudProvisioning\Client\Result\Exception;
 
 use Exception;
 

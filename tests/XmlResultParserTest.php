@@ -1,8 +1,8 @@
 <?php
 
 
-use Arnovr\OwncloudProvisioning\ResponseParser\XMLResponseParser;
-use Arnovr\OwncloudProvisioning\Result\StatusResult;
+use Arnovr\OwncloudProvisioning\Client\ResponseParser\XMLResponseParser;
+use Arnovr\OwncloudProvisioning\Client\Result\StatusResult;
 use GuzzleHttp\Psr7\Response;
 
 class XmlResultParserTest extends PHPUnit_Framework_TestCase

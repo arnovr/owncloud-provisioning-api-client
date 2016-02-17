@@ -1,6 +1,6 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning\Result;
+namespace Arnovr\OwncloudProvisioning\Client\Result;
 
 
 class GroupsList extends StatusResult

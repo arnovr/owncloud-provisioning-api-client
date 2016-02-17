@@ -1,12 +1,10 @@
 <?php
 
-
-namespace Arnovr\OwncloudProvisioning\Command;
-
+namespace Arnovr\OwncloudProvisioning\Client\Command;
 
 use Assert\Assertion;
 
-class CreateGroup
+class DeleteGroup
 {
     /**
      * @var string
@@ -14,13 +12,13 @@ class CreateGroup
     private $groupId;
 
     /**
-     * CreateGroup constructor.
+     * DeleteGroup constructor.
      *
      * @param string $groupId
      */
     public function __construct($groupId = '')
     {
-        Assertion::notEmpty($groupId, 'Group id is a required field to add a group');
+        Assertion::notEmpty($groupId, 'Group id is a required field to delete a group');
 
         $this->groupId = $groupId;
     }

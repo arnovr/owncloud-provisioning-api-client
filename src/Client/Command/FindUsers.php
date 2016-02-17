@@ -1,13 +1,13 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning\Command;
+namespace Arnovr\OwncloudProvisioning\Client\Command;
 
 use Assert\Assertion;
 
-class FindUser
+class FindUsers
 {
     /**
-     * FindUser constructor.
+     * FindUsers constructor.
      *
      * @param string $userName
      */

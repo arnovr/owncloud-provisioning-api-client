@@ -1,19 +1,19 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning\Command;
+namespace Arnovr\OwncloudProvisioning\Client\Command;
 
 use Assert\Assertion;
 
-class DeleteUser
+class FindUser
 {
     /**
-     * DeleteUser constructor.
+     * FindUser constructor.
      *
      * @param string $userName
      */
     public function __construct($userName = '')
     {
-        Assertion::notEmpty($userName, 'Username is a required field to delete a user');
+        Assertion::notEmpty($userName, 'Username is a required field to find a user');
 
         $this->userName = $userName;
     }

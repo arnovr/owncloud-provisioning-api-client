@@ -1,28 +1,28 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning;
+namespace Arnovr\OwncloudProvisioning\Client;
 
-use Arnovr\OwncloudProvisioning\Command\AddUserToGroup;
-use Arnovr\OwncloudProvisioning\Command\CreateGroup;
-use Arnovr\OwncloudProvisioning\Command\CreateUser;
-use Arnovr\OwncloudProvisioning\Command\DeleteGroup;
-use Arnovr\OwncloudProvisioning\Command\DeleteUser;
-use Arnovr\OwncloudProvisioning\Command\DeleteUserFromGroup;
-use Arnovr\OwncloudProvisioning\Command\EditUser;
-use Arnovr\OwncloudProvisioning\Command\FindGroups;
-use Arnovr\OwncloudProvisioning\Command\FindGroupsOfUser;
-use Arnovr\OwncloudProvisioning\Command\FindSubAdminGroupsOfUser;
-use Arnovr\OwncloudProvisioning\Command\FindUser;
-use Arnovr\OwncloudProvisioning\Command\FindUsers;
-use Arnovr\OwncloudProvisioning\Command\FindUsersOfGroup;
-use Arnovr\OwncloudProvisioning\Command\MakeUserSubAdminOfGroup;
-use Arnovr\OwncloudProvisioning\Command\RemoveUsersSubAdminRightsFromGroup;
-use Arnovr\OwncloudProvisioning\ResponseParser\ResponseParser;
-use Arnovr\OwncloudProvisioning\Result\Exception\NothingToModifyException;
-use Arnovr\OwncloudProvisioning\Result\GroupsList;
-use Arnovr\OwncloudProvisioning\Result\User;
-use Arnovr\OwncloudProvisioning\Result\UserList;
-use Arnovr\OwncloudProvisioning\Result\StatusResult;
+use Arnovr\OwncloudProvisioning\Client\Command\AddUserToGroup;
+use Arnovr\OwncloudProvisioning\Client\Command\CreateGroup;
+use Arnovr\OwncloudProvisioning\Client\Command\CreateUser;
+use Arnovr\OwncloudProvisioning\Client\Command\DeleteGroup;
+use Arnovr\OwncloudProvisioning\Client\Command\DeleteUser;
+use Arnovr\OwncloudProvisioning\Client\Command\DeleteUserFromGroup;
+use Arnovr\OwncloudProvisioning\Client\Command\EditUser;
+use Arnovr\OwncloudProvisioning\Client\Command\FindGroups;
+use Arnovr\OwncloudProvisioning\Client\Command\FindGroupsOfUser;
+use Arnovr\OwncloudProvisioning\Client\Command\FindSubAdminGroupsOfUser;
+use Arnovr\OwncloudProvisioning\Client\Command\FindUser;
+use Arnovr\OwncloudProvisioning\Client\Command\FindUsers;
+use Arnovr\OwncloudProvisioning\Client\Command\FindUsersOfGroup;
+use Arnovr\OwncloudProvisioning\Client\Command\MakeUserSubAdminOfGroup;
+use Arnovr\OwncloudProvisioning\Client\Command\RemoveUsersSubAdminRightsFromGroup;
+use Arnovr\OwncloudProvisioning\Client\ResponseParser\ResponseParser;
+use Arnovr\OwncloudProvisioning\Client\Result\Exception\NothingToModifyException;
+use Arnovr\OwncloudProvisioning\Client\Result\GroupsList;
+use Arnovr\OwncloudProvisioning\Client\Result\User;
+use Arnovr\OwncloudProvisioning\Client\Result\UserList;
+use Arnovr\OwncloudProvisioning\Client\Result\StatusResult;
 
 class ProvisioningClient
 {

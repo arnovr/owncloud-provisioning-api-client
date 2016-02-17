@@ -1,6 +1,6 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning;
+namespace Arnovr\OwncloudProvisioning\Client;
 
 use GuzzleHttp\Client;
 

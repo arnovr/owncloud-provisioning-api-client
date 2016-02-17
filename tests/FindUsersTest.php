@@ -2,7 +2,7 @@
 
 use Arnovr\OwncloudProvisioning\Command\FindUsers;
 use Arnovr\OwncloudProvisioning\ProvisioningClient;
-use Arnovr\OwncloudProvisioning\Result\UserList;
+use Arnovr\OwncloudProvisioning\Client\Result\UserList;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;

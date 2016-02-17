@@ -1,8 +1,8 @@
 <?php
 
-use Arnovr\OwncloudProvisioning\Command\FindUser;
+use Arnovr\OwncloudProvisioning\Client\Command\FindUser;
 use Arnovr\OwncloudProvisioning\ProvisioningClient;
-use Arnovr\OwncloudProvisioning\Result\User;
+use Arnovr\OwncloudProvisioning\Client\Result\User;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;

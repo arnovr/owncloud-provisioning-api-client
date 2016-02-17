@@ -21,7 +21,7 @@
  * THE SOFTWARE.
  */
 
-namespace Arnovr\OwncloudProvisioning\Command;
+namespace Arnovr\OwncloudProvisioning\Client\Command;
 
 
 class FindUsersOfGroup

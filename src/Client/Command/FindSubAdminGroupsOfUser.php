@@ -1,13 +1,11 @@
 <?php
 
-namespace Arnovr\OwncloudProvisioning\Command;
+namespace Arnovr\OwncloudProvisioning\Client\Command;
 
-use Assert\Assertion;
-
-class FindGroupsOfUser
+class FindSubAdminGroupsOfUser
 {
     /**
-     * FindGroupsOfUser constructor.
+     * FindSubAdminGroupsOfUser constructor.
      *
      * @param string $userName
      */
