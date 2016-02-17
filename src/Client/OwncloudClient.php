@@ -23,6 +23,7 @@ use Arnovr\OwncloudProvisioning\Client\Result\GroupsList;
 use Arnovr\OwncloudProvisioning\Client\Result\User;
 use Arnovr\OwncloudProvisioning\Client\Result\UserList;
 use Arnovr\OwncloudProvisioning\Client\Result\StatusResult;
+use Assert\Assertion;
 
 class OwncloudClient
 {
@@ -123,6 +124,8 @@ class OwncloudClient
     public function findUser(FindUser $findUserCommand)
     {
         $apiResponse = $this->apiConnection->sendRequest("GET", "/users/" . $findUserCommand->userName);
+
+        Assertion::same(100, (int) $apiResponse['statusCode']);
 
         return $this->responseParser->parseFindUser($apiResponse);
     }

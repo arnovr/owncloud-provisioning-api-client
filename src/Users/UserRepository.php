@@ -37,7 +37,6 @@ class UserRepository
             $findUserCommand
         );
         return User::from(
-            (integer) $userResult['statusCode'],
             $userResult['email'],
             (integer) $userResult['quota'],
             (bool) $userResult['enabled']

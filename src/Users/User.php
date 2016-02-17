@@ -9,11 +9,6 @@ class User
     /**
      * @var string
      */
-    private $statusCode;
-
-    /**
-     * @var string
-     */
     private $email;
 
     /**
@@ -27,7 +22,6 @@ class User
     private $enabled = false;
 
     /**
-     * @param integer $statusCode
      * @param string  $email
      * @param integer $quota
      * @param boolean $enabled
@@ -46,14 +40,13 @@ class User
     }
 
     /**
-     * @param integer $statusCode
      * @param string $email
      * @param integer $quota
      * @param boolean $enabled
      * @return User
      */
-    public static function from($statusCode, $email, $quota, $enabled)
+    public static function from($email, $quota, $enabled)
     {
-        return new self($statusCode, $email, $quota, $enabled);
+        return new self($email, $quota, $enabled);
     }
 }
