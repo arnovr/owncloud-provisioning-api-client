@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Arnovr\OwncloudProvisioning\Client\Command;
-
 
 use Assert\Assertion;
 
