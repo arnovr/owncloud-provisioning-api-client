@@ -2,6 +2,8 @@
 
 namespace Arnovr\OwncloudProvisioning\Client\Command;
 
+use Assert\Assertion;
+
 class FindGroups
 {
     /**
