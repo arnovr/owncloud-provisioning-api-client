@@ -1,12 +1,19 @@
 # Owncloud Provisioning API Client
-This is the repository of the owncloud provisioning api client, 
-which gives the ability to provision owncloud users, groups and apps
+This is the repository of the **ownCloud provisioning api client**, which gives the ability to provision ownCloud users, groups and apps.
 
-It implements the following provisioning API:
-https://doc.owncloud.org/server/8.0/admin_manual/configuration_user/user_provisioning_api.html
+It implements the following provisioning API: [User Provisioning API](https://doc.owncloud.org/server/8.0/admin_manual/configuration_user/user_provisioning_api.html)
 
-## Initialize Provisioning Client:
-````
+## Installation
+
+Install via composer
+```bash
+composer require arnovr/owncloud-provisioning-api-client
+```
+
+## Usage
+
+### Initialize provisioning client:
+```php
 use Arnovr\OwncloudProvisioning\ApiConnection;
 use Arnovr\OwncloudProvisioning\ProvisioningClient;
 use Arnovr\OwncloudProvisioning\ResponseParser\XMLResponseParser;
@@ -22,23 +29,23 @@ $provisioningClient = new ProvisioningClient(
     ),
     new XMLResponseParser()
 );
-````
+```
 
-## Create owncloud user
-````
+### Create ownCloud user
+```php
 $user = new CreateUser('username', 'password');
 $provisioningClient->createUser($user);
-````
+```
 
-## Change Email address of a user
-````
+### Change email address of a user
+```php
 $user = new EditUser('usertochange@email.com');
 $user->email = 'email@email.com';
 
 $provisioningClient->editUser($user);
-````
+```
 
-## Possible commands:
+### Possible commands:
 - AddUserToGroup
 - CreateGroup
 - CreateUser
@@ -55,8 +62,11 @@ $provisioningClient->editUser($user);
 - MakeUserSubAdminOfGroup
 - RemoveUsersSubAdminRightsFromGroup
 
-## TODO:
+### TODO:
 - DisableApp
 - EnableApp
 - FindAppInfo
 - FindInstalledApps
+
+## License
+This project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
